@@ -1,0 +1,555 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>봉암재 한옥스테이</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Song+Myung&family=Gowun+Dodum&family=IBM+Plex+Sans+KR:wght@400;500;600&display=swap">
+<style>
+/* 레이아웃: 한지 바탕 위 세로쓰기 표제 + 창살 격자 리듬, 좁은 본문 단 */
+:root{
+  --paper:#f3f2ec;      /* 한지 */
+  --paper-2:#e8e7df;
+  --ink:#1f2622;        /* 먹 */
+  --ink-soft:#56605a;
+  --tea:#4d6b55;        /* 녹차 */
+  --tea-soft:#dfe6dc;
+  --seal:#9e2b25;       /* 낙관 */
+  --line:#c9cbc0;
+  --wood:#6b4e36;
+  --f-display:"Song Myung","Nanum Myeongjo","Batang",serif;
+  --f-body:"Gowun Dodum","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+  --f-data:"IBM Plex Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#161b18;--paper-2:#1e2420;--ink:#e6e5dc;--ink-soft:#a3aba4;--tea:#8fb398;--tea-soft:#25312a;--seal:#d9675d;--line:#353d37;--wood:#c29a76;color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#161b18;--paper-2:#1e2420;--ink:#e6e5dc;--ink-soft:#a3aba4;--tea:#8fb398;--tea-soft:#25312a;--seal:#d9675d;--line:#353d37;--wood:#c29a76;color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.75;word-break:keep-all}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--paper)}
+.wrap{max-width:1080px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--f-display);font-weight:400;text-wrap:balance;margin:0}
+p{margin:0}
+a{color:var(--tea)}
+:focus-visible{outline:2px solid var(--seal);outline-offset:3px}
+.num{font-family:var(--f-data);font-variant-numeric:tabular-nums}
+
+/* 상단 메뉴 */
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:color-mix(in srgb,var(--paper) 92%,transparent);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:12px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink)}
+.seal{display:inline-grid;place-items:center;width:30px;height:38px;background:var(--seal);color:#f6efe6;font-family:var(--f-display);font-size:11px;line-height:1.05;border-radius:3px;writing-mode:vertical-rl;letter-spacing:.05em}
+.brand b{font-family:var(--f-display);font-weight:400;font-size:22px}
+nav{display:flex;gap:4px;flex-wrap:wrap;justify-content:flex-end}
+nav a{color:var(--ink-soft);text-decoration:none;font-size:14px;padding:6px 10px;border-radius:4px}
+nav a:hover{color:var(--ink);background:var(--paper-2)}
+nav a.cta{background:var(--ink);color:var(--paper)}
+@media (max-width:720px){nav a:not(.cta){display:none}}
+
+/* 첫 화면 */
+.hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+.hero .wrap{display:grid;grid-template-columns:auto 1fr;gap:clamp(24px,6vw,80px);align-items:end;padding-block:clamp(48px,9vw,110px) clamp(40px,7vw,80px)}
+.vertical{writing-mode:vertical-rl;font-family:var(--f-display);font-size:clamp(64px,12vw,140px);line-height:1;letter-spacing:.08em;color:var(--ink);margin:0}
+.hero-copy{display:grid;gap:22px;min-width:0;max-width:560px}
+.eyebrow{font-family:var(--f-data);font-size:13px;letter-spacing:.14em;color:var(--tea)}
+.hero-copy h2{font-size:clamp(26px,3.6vw,40px);line-height:1.35}
+.hero-copy p{color:var(--ink-soft);max-width:34em}
+.roof{position:absolute;right:-40px;top:24px;width:min(560px,70vw);opacity:.13;pointer-events:none}
+.roof path{fill:none;stroke:var(--ink);stroke-width:3}
+.facts{display:flex;flex-wrap:wrap;gap:10px 28px;padding-top:8px;border-top:1px solid var(--line)}
+.facts div{display:grid}
+.facts dt{font-size:12px;color:var(--ink-soft);letter-spacing:.06em}
+.facts dd{margin:0;font-family:var(--f-data);font-weight:500}
+.btns{display:flex;gap:10px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:4px;font:inherit;font-size:15px;text-decoration:none;cursor:pointer;border:1px solid var(--ink);background:var(--ink);color:var(--paper)}
+.btn.ghost{background:transparent;color:var(--ink)}
+.btn:hover{filter:brightness(1.12)}
+@media (max-width:560px){.hero .wrap{grid-template-columns:1fr}.vertical{writing-mode:horizontal-tb;font-size:64px;letter-spacing:.12em}}
+
+/* 공통 섹션 */
+section{padding-block:clamp(56px,8vw,96px);border-bottom:1px solid var(--line)}
+.sec-head{display:grid;grid-template-columns:minmax(0,200px) 1fr;gap:24px;margin-bottom:40px}
+.sec-head .label{font-family:var(--f-data);font-size:13px;letter-spacing:.14em;color:var(--tea);padding-top:10px}
+.sec-head h2{font-size:clamp(26px,3.4vw,36px);line-height:1.35}
+.sec-head p{color:var(--ink-soft);margin-top:12px;max-width:38em}
+@media (max-width:720px){.sec-head{grid-template-columns:1fr;gap:6px}}
+
+/* 소개 */
+.intro-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+.intro-grid > div{background:var(--paper);padding:28px 24px;display:grid;gap:10px;align-content:start}
+.intro-grid .big{font-family:var(--f-display);font-size:44px;line-height:1;color:var(--wood)}
+.intro-grid h3{font-size:20px}
+.intro-grid p{color:var(--ink-soft);font-size:15px}
+@media (max-width:760px){.intro-grid{grid-template-columns:1fr}}
+
+/* 객실 */
+.rooms{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.room{border:1px solid var(--line);background:var(--paper);display:grid;grid-template-rows:auto 1fr}
+.room-art{aspect-ratio:16/9;max-width:100%;background:
+  linear-gradient(var(--line) 1px,transparent 1px) 0 0/26px 26px,
+  linear-gradient(90deg,var(--line) 1px,transparent 1px) 0 0/26px 26px,var(--paper-2);
+  display:grid;place-items:center;position:relative;border-bottom:1px solid var(--line)}
+.room-art span{position:absolute;left:14px;top:12px;font-family:var(--f-display);font-size:26px;background:var(--paper);padding:2px 12px;border:1px solid var(--line)}
+.room-art em{position:absolute;right:14px;bottom:12px;font-style:normal;font-size:12px;color:var(--ink-soft);background:var(--paper);padding:2px 8px}
+.room-art svg{width:100%;height:100%;padding:18px 10px 10px}
+.plan .base{fill:none;stroke:var(--ink-soft);stroke-dasharray:2 2;stroke-width:.6}
+.plan .maru{fill:var(--paper-2);stroke:var(--ink);stroke-width:.8}
+.plan .bang{fill:var(--tea-soft);stroke:var(--ink);stroke-width:1.1}
+.plan .wet{fill:var(--paper);stroke:var(--ink);stroke-width:.8}
+.plan circle{fill:var(--wood);stroke:none}
+.plan text{fill:var(--ink);font-family:var(--f-body);font-size:5.5px;text-anchor:middle;dominant-baseline:middle}
+.plan text.s{fill:var(--ink-soft);font-size:4.2px}
+.room-body{padding:24px;display:grid;gap:18px;align-content:start}
+.room-body .meta{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-size:13px;padding:3px 10px;border-radius:99px;background:var(--tea-soft);color:var(--tea);font-family:var(--f-data)}
+.price-rows{display:grid;gap:0;border-top:1px solid var(--line)}
+.price-rows div{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px dashed var(--line)}
+.price-rows dt{color:var(--ink-soft)}
+.price-rows dd{margin:0;font-family:var(--f-data);font-weight:600;font-variant-numeric:tabular-nums}
+@media (max-width:760px){.rooms{grid-template-columns:1fr}}
+.notes{margin-top:28px;display:grid;gap:6px;color:var(--ink-soft);font-size:14px;padding:18px 20px;background:var(--paper-2);border-left:3px solid var(--wood)}
+.notes b{color:var(--ink);font-weight:400}
+
+/* 체험 */
+.exp-table{overflow-x:auto;border:1px solid var(--line)}
+table{border-collapse:collapse;width:100%;min-width:600px}
+th,td{text-align:left;padding:14px 16px;border-bottom:1px solid var(--line);vertical-align:top}
+thead th{font-family:var(--f-data);font-size:13px;font-weight:500;color:var(--ink-soft);background:var(--paper-2);letter-spacing:.04em}
+tbody tr:last-child td{border-bottom:0}
+td.name{font-family:var(--f-display);font-size:19px;white-space:nowrap}
+td.r{text-align:right;white-space:nowrap}
+.steps{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px;align-items:center;font-size:14px;color:var(--ink-soft)}
+.steps span{padding:4px 12px;border:1px solid var(--line);border-radius:99px;background:var(--paper)}
+.steps i{font-style:normal;color:var(--line)}
+.dabo{margin-top:32px;display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:center;padding:24px;border:1px solid var(--tea);background:var(--tea-soft)}
+.dabo .cal{text-align:center;font-family:var(--f-data);border:1px solid var(--tea);background:var(--paper);padding:10px 14px;line-height:1.3}
+.dabo .cal b{display:block;font-size:26px;color:var(--tea)}
+.dabo h3{font-size:20px;margin-bottom:4px}
+.dabo p{font-size:15px;color:var(--ink-soft)}
+@media (max-width:520px){.dabo{grid-template-columns:1fr}}
+
+/* 예약 문의 */
+.book{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:32px;align-items:start}
+@media (max-width:860px){.book{grid-template-columns:1fr}}
+form{display:grid;gap:18px}
+.row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+@media (max-width:480px){.row{grid-template-columns:1fr}}
+label{display:grid;gap:6px;font-size:14px;color:var(--ink-soft)}
+input,select,textarea{font:inherit;font-size:15px;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:10px 12px;width:100%}
+input:focus,select:focus,textarea:focus{border-color:var(--tea);outline:none;box-shadow:0 0 0 3px var(--tea-soft)}
+fieldset{border:1px solid var(--line);border-radius:4px;padding:14px 16px;margin:0;display:grid;gap:8px}
+legend{font-size:14px;color:var(--ink-soft);padding:0 6px}
+.check{display:flex;align-items:center;gap:10px;color:var(--ink);font-size:15px}
+.check input{width:18px;height:18px;accent-color:var(--tea)}
+.check small{margin-left:auto;color:var(--ink-soft);font-family:var(--f-data)}
+.err{color:var(--seal);font-size:14px;min-height:1.4em}
+.receipt{position:sticky;top:calc(env(safe-area-inset-top,0px) + 80px);border:1px solid var(--ink);background:var(--paper);padding:24px;display:grid;gap:14px}
+.receipt h3{font-size:22px;display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.receipt h3 small{font-family:var(--f-body);font-size:13px;color:var(--ink-soft)}
+.lines{display:grid;gap:0}
+.lines div{display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-bottom:1px dashed var(--line);font-size:14px}
+.lines div span:last-child{font-family:var(--f-data);font-variant-numeric:tabular-nums;white-space:nowrap}
+.total{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding-top:6px}
+.total b{font-family:var(--f-data);font-size:26px;font-weight:600;font-variant-numeric:tabular-nums}
+.small{font-size:13px;color:var(--ink-soft)}
+.msg{width:100%;min-height:170px;font-size:13px;line-height:1.6;background:var(--paper-2);white-space:pre-wrap}
+.phone{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:14px 16px;background:var(--ink);color:var(--paper);border-radius:4px}
+.phone b{font-family:var(--f-data);font-size:20px;letter-spacing:.04em;user-select:all}
+.phone a{color:var(--paper)}
+.toast{font-size:13px;color:var(--tea);min-height:1.3em}
+
+/* 이용 안내 · 오시는 길 */
+.info{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:40px}
+@media (max-width:760px){.info{grid-template-columns:1fr}}
+.info h3{font-size:22px;margin-bottom:14px}
+.info ul{margin:0;padding:0;list-style:none;display:grid;gap:10px}
+.info li{padding-left:18px;position:relative;color:var(--ink-soft)}
+.info li::before{content:"";position:absolute;left:0;top:.72em;width:7px;height:7px;border:1px solid var(--tea);transform:rotate(45deg)}
+.addr{font-family:var(--f-display);font-size:22px;line-height:1.5;margin-bottom:12px}
+
+footer{padding-block:40px 56px;font-size:13px;color:var(--ink-soft)}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px 32px}
+footer .reg{display:flex;gap:14px;align-items:center}
+footer .seal{width:34px;height:42px;font-size:12px}
+</style>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="봉암재 처음으로"><span class="seal">봉암재</span><b>봉암재</b></a>
+    <nav aria-label="주요 메뉴">
+      <a href="#about">소개</a>
+      <a href="#rooms">객실·요금</a>
+      <a href="#programs">전통문화 체험</a>
+      <a href="#guide">이용 안내</a>
+      <a class="cta" href="#booking">예약 문의</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <svg class="roof" viewBox="0 0 600 220" aria-hidden="true">
+      <path d="M10 150 C 120 140, 200 90, 300 40 C 400 90, 480 140, 590 150"/>
+      <path d="M40 170 C 150 160, 220 120, 300 80 C 380 120, 450 160, 560 170"/>
+      <path d="M120 175 L120 215 M200 160 L200 215 M300 120 L300 215 M400 160 L400 215 M480 175 L480 215"/>
+    </svg>
+    <div class="wrap">
+      <h1 class="vertical">봉암재</h1>
+      <div class="hero-copy">
+        <span class="eyebrow">전남 담양 금성면 · 한옥 독채 스테이</span>
+        <h2>두 채의 한옥, 한 팀만을 위한 하룻밤과 차 한 잔</h2>
+        <p>봉암재는 한 동 전체를 한 팀이 쓰는 한옥 독채 숙소입니다. 도착하면 환영 차와 다식을 내어 드리고, 원하시면 다도·제다·천연염색·보자기·다식 만들기를 함께할 수 있습니다.</p>
+        <dl class="facts">
+          <div><dt>객실</dt><dd>한옥 2동 · 독채 2실</dd></div>
+          <div><dt>기준 / 최대</dt><dd class="num">2~4인 · 4~8인</dd></div>
+          <div><dt>1박 요금</dt><dd class="num">450,000원부터</dd></div>
+        </dl>
+        <div class="btns">
+          <a class="btn" href="#booking">예약 문의하기</a>
+          <a class="btn ghost" href="#rooms">객실 보기</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section id="about">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="label">봉암재 소개</span>
+        <div>
+          <h2>쉬는 시간과 배우는 시간을 나누어 지키는 한옥</h2>
+          <p>소규모 사전예약으로만 운영합니다. 체험객의 출입과 소리가 숙박객의 휴식을 방해하지 않도록 예약 시간과 동선을 따로 맞춥니다.</p>
+        </div>
+      </div>
+      <div class="intro-grid">
+        <div>
+          <span class="big num">55</span>
+          <h3>기둥 쉰다섯 개로 세운 집</h3>
+          <p>상량식과 준공식까지 한옥을 짓는 과정을 기록해 두었습니다. 블로그와 유튜브에서 360도 영상으로 미리 둘러보실 수 있습니다.</p>
+        </div>
+        <div>
+          <span class="big">茶</span>
+          <h3>차가 있는 머무름</h3>
+          <p>모든 숙박에 환영 차, 소량의 다식, 셀프 다기 이용이 포함됩니다. 찻잎을 덖고 비비는 제다 체험은 수확철에 맞춰 엽니다.</p>
+        </div>
+        <div>
+          <span class="big num">1동 1팀</span>
+          <h3>온전히 한 팀만</h3>
+          <p>서암정과 소소당, 두 동 모두 독채입니다. 다른 손님과 공간을 나누지 않습니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="rooms">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="label">객실 · 요금</span>
+        <div>
+          <h2>서암정과 소소당</h2>
+          <p>모든 객실은 좌식입니다. 요금은 1동 1박 기준이며 부가가치세가 포함된 금액입니다.</p>
+        </div>
+      </div>
+      <div class="rooms">
+        <article class="room">
+          <div class="room-art"><span>서암정</span><em>평면도 · 연면적 81㎡</em>
+            <svg class="plan" viewBox="0 0 160 90" role="img" aria-label="서암정 평면: 가운데 방을 마루가 사방으로 둘러싼 정사각형 한옥">
+              <rect class="base" x="40" y="3" width="80" height="84"/>
+              <rect class="maru" x="48" y="11" width="64" height="68"/>
+              <rect class="bang" x="63" y="27" width="34" height="36"/>
+              <text x="80" y="45">방</text>
+              <text class="s" x="80" y="19">마루</text><text class="s" x="80" y="71">마루</text>
+              <text class="s" x="55.5" y="45">마루</text><text class="s" x="104.5" y="45">마루</text>
+              <g><circle cx="48" cy="11" r="1.6"/><circle cx="69.3" cy="11" r="1.6"/><circle cx="90.7" cy="11" r="1.6"/><circle cx="112" cy="11" r="1.6"/>
+              <circle cx="48" cy="79" r="1.6"/><circle cx="69.3" cy="79" r="1.6"/><circle cx="90.7" cy="79" r="1.6"/><circle cx="112" cy="79" r="1.6"/>
+              <circle cx="48" cy="33.7" r="1.6"/><circle cx="48" cy="56.3" r="1.6"/><circle cx="112" cy="33.7" r="1.6"/><circle cx="112" cy="56.3" r="1.6"/>
+              <circle cx="63" cy="27" r="1.6"/><circle cx="97" cy="27" r="1.6"/><circle cx="63" cy="63" r="1.6"/><circle cx="97" cy="63" r="1.6"/></g>
+            </svg></div>
+          <div class="room-body">
+            <div class="meta"><span class="chip">좌식</span><span class="chip">기준 2인 · 최대 4인</span><span class="chip">연면적 81㎡</span></div>
+            <p>가운데 방을 마루가 사방으로 둘러싼 정사각형 채입니다. 어느 쪽 문을 열어도 바깥 풍경이 들어오고, 둘이서 조용히 쉬기 좋습니다. 넷까지 머물 수 있습니다.</p>
+            <dl class="price-rows">
+              <div><dt>주중 (일~목)</dt><dd>450,000원</dd></div>
+              <div><dt>주말 (금~토)</dt><dd>550,000원</dd></div>
+              <div><dt>성수기</dt><dd>750,000원</dd></div>
+            </dl>
+          </div>
+        </article>
+        <article class="room">
+          <div class="room-art"><span>소소당</span><em>평면도 · 연면적 114㎡</em>
+            <svg class="plan" viewBox="0 0 160 90" role="img" aria-label="소소당 평면: 방 두 칸과 화장실, 툇마루가 있는 ㄱ자 한옥">
+              <path class="base" d="M24 36 H94 V3 H136 V87 H24 Z"/>
+              <rect class="bang" x="30" y="52" width="100" height="30"/>
+              <rect class="maru" x="30" y="42" width="74" height="10"/>
+              <rect class="bang" x="110" y="9" width="20" height="43"/>
+              <rect class="wet" x="100" y="9" width="10" height="16"/>
+              <rect class="maru" x="100" y="25" width="10" height="17"/>
+              <text x="80" y="67">큰방</text>
+              <text x="120" y="30">작은방</text>
+              <text class="s" x="67" y="47">툇마루</text>
+              <text class="s" x="105" y="17">화장실</text>
+              <g><circle cx="30" cy="42" r="1.6"/><circle cx="52" cy="42" r="1.6"/><circle cx="80" cy="42" r="1.6"/><circle cx="100" cy="42" r="1.6"/><circle cx="110" cy="42" r="1.6"/>
+              <circle cx="30" cy="52" r="1.6"/><circle cx="52" cy="52" r="1.6"/><circle cx="80" cy="52" r="1.6"/><circle cx="100" cy="52" r="1.6"/><circle cx="110" cy="52" r="1.6"/><circle cx="130" cy="52" r="1.6"/>
+              <circle cx="30" cy="82" r="1.6"/><circle cx="52" cy="82" r="1.6"/><circle cx="80" cy="82" r="1.6"/><circle cx="105" cy="82" r="1.6"/><circle cx="130" cy="82" r="1.6"/>
+              <circle cx="100" cy="9" r="1.6"/><circle cx="110" cy="9" r="1.6"/><circle cx="130" cy="9" r="1.6"/><circle cx="100" cy="25" r="1.6"/><circle cx="130" cy="30" r="1.6"/></g>
+            </svg></div>
+          <div class="room-body">
+            <div class="meta"><span class="chip">좌식</span><span class="chip">기준 4인 · 최대 8인</span><span class="chip">연면적 114㎡</span></div>
+            <p>큰방과 작은방 두 칸에 화장실과 툇마루를 갖춘 ㄱ자 채입니다. 여러 가족이나 소모임이 방을 나누어 쓰기 좋고, 여덟까지 머물 수 있습니다.</p>
+            <dl class="price-rows">
+              <div><dt>주중 (일~목)</dt><dd>600,000원</dd></div>
+              <div><dt>주말 (금~토)</dt><dd>700,000원</dd></div>
+              <div><dt>성수기</dt><dd>950,000원</dd></div>
+            </dl>
+          </div>
+        </article>
+      </div>
+      <div class="notes">
+        <p><b>추가 인원</b> 기준 인원을 넘으면 1인당 20,000원 (만 36개월 미만 영유아 무료)</p>
+        <p><b>부가 서비스</b> 바비큐 그릴 대여 30,000원</p>
+        <p><b>성수기·특별일</b> 미리 정해 공지하며, 할증을 겹쳐 받지 않습니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="programs">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="label">전통문화 체험</span>
+        <div>
+          <h2>다섯 가지 전통문화 체험</h2>
+          <p>모든 체험은 사전예약제이며 회당 4~8명 기준으로 진행합니다. 숙박과 별도로 요금을 받습니다. 소규모 단독 체험은 인원과 내용에 따라 따로 안내해 드립니다.</p>
+        </div>
+      </div>
+      <div class="exp-table">
+        <table>
+          <thead><tr><th>체험</th><th>하는 일</th><th>소요 시간</th><th style="text-align:right">1인 요금</th></tr></thead>
+          <tbody>
+            <tr><td class="name">다도</td><td>차 예절, 차 우리기, 시음</td><td class="num">60~90분</td><td class="r num">50,000원</td></tr>
+            <tr><td class="name">제다</td><td>찻잎 선별, 덖음, 비비기, 건조 <span class="small">· 찻잎 수확철 운영</span></td><td class="num">120~180분</td><td class="r num">90,000원</td></tr>
+            <tr><td class="name">천연염색</td><td>염재 이해, 염색, 수세, 건조</td><td class="num">90~120분</td><td class="r num">60,000원</td></tr>
+            <tr><td class="name">전통보자기</td><td>재단, 바느질, 마감</td><td class="num">120~180분</td><td class="r num">80,000원</td></tr>
+            <tr><td class="name">다식 만들기</td><td>재료 배합, 틀 성형, 시식</td><td class="num">60~90분</td><td class="r num">50,000원</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="steps" aria-label="체험 진행 순서">
+        <span>재료 준비</span><i>—</i><span>안전 안내</span><i>—</i><span>체험</span><i>—</i><span>정리</span><i>—</i><span>소감 나누기</span>
+      </div>
+      <p class="small" style="margin-top:14px">다도·다식 체험에 쓰는 재료 중 알레르기를 일으킬 수 있는 것은 미리 알려 드립니다. 제다 체험의 완성품 건조와 전달 방법은 예약하실 때 안내합니다.</p>
+      <div class="dabo">
+        <div class="cal"><b>셋째 주</b>토요일<br>오전 8시</div>
+        <div>
+          <h3>금성산성 다보 모임</h3>
+          <p>매월 셋째 주 토요일 오전 8시, 금성산성 주차장에 모여 차 문화를 나눕니다. 회차별 진행 여부와 세부 일정은 따로 공지합니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="booking">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="label">예약 문의</span>
+        <div>
+          <h2>날짜와 인원을 고르면 예상 금액을 바로 보여 드립니다</h2>
+          <p>아래 내용을 채운 뒤 문의 글을 복사해 문자로 보내 주세요. 운영자가 날짜·인원·요금·체험 내용을 확인한 뒤 예약을 확정해 드립니다.</p>
+        </div>
+      </div>
+      <div class="book">
+        <form id="bookForm" novalidate>
+          <div class="row">
+            <label for="f-name">이름<input id="f-name" type="text" autocomplete="name" placeholder="홍길동" value=""></label>
+            <label for="f-tel">연락처<input id="f-tel" type="tel" autocomplete="tel" placeholder="010-0000-0000"></label>
+          </div>
+          <label for="f-room">객실
+            <select id="f-room">
+              <option value="seoam">서암정 · 기준 2인 / 최대 4인</option>
+              <option value="soso">소소당 · 기준 4인 / 최대 8인</option>
+            </select>
+          </label>
+          <div class="row">
+            <label for="f-in">입실일<input id="f-in" type="date"></label>
+            <label for="f-nights">숙박 일수
+              <select id="f-nights"><option value="1">1박</option><option value="2">2박</option><option value="3">3박</option><option value="4">4박</option><option value="5">5박</option></select>
+            </label>
+          </div>
+          <div class="row">
+            <label for="f-adults">인원 (영유아 제외)<input id="f-adults" type="number" min="1" max="8" value="2" inputmode="numeric"></label>
+            <label for="f-infants">만 36개월 미만 영유아<input id="f-infants" type="number" min="0" max="4" value="0" inputmode="numeric"></label>
+          </div>
+          <label class="check" for="f-peak"><input id="f-peak" type="checkbox"> 성수기·특별일에 해당해요 <small>공지된 날짜 기준</small></label>
+          <label class="check" for="f-bbq"><input id="f-bbq" type="checkbox"> 바비큐 그릴 대여 <small>30,000원</small></label>
+          <fieldset>
+            <legend>함께할 체험 (선택)</legend>
+            <label class="check" for="x-dado"><input id="x-dado" type="checkbox" data-exp="다도체험" data-price="50000"> 다도체험 <small>1인 50,000원</small></label>
+            <label class="check" for="x-jeda"><input id="x-jeda" type="checkbox" data-exp="제다체험" data-price="90000"> 제다체험 <small>1인 90,000원</small></label>
+            <label class="check" for="x-dye"><input id="x-dye" type="checkbox" data-exp="천연염색" data-price="60000"> 천연염색 <small>1인 60,000원</small></label>
+            <label class="check" for="x-bojagi"><input id="x-bojagi" type="checkbox" data-exp="전통보자기 만들기" data-price="80000"> 전통보자기 만들기 <small>1인 80,000원</small></label>
+            <label class="check" for="x-dasik"><input id="x-dasik" type="checkbox" data-exp="다식 만들기" data-price="50000"> 다식 만들기 <small>1인 50,000원</small></label>
+            <label for="f-exppeople">체험 인원<input id="f-exppeople" type="number" min="1" max="8" value="2" inputmode="numeric"></label>
+          </fieldset>
+          <label for="f-memo">요청 사항<textarea id="f-memo" rows="3" placeholder="도착 예정 시간, 알레르기, 기념일 등"></textarea></label>
+          <p class="err" id="err" role="alert"></p>
+        </form>
+
+        <aside class="receipt" aria-live="polite">
+          <h3>예상 금액 <small id="r-room">서암정</small></h3>
+          <div class="lines" id="lines"></div>
+          <div class="total"><span>합계 (부가세 포함)</span><b id="total">0원</b></div>
+          <p class="small">예상 금액이며, 운영자 확인 후 최종 금액을 안내해 드립니다. 이 화면에서는 예약이 접수되지 않습니다.</p>
+          <label for="msg">보낼 문의 글<textarea id="msg" class="msg" readonly></textarea></label>
+          <div class="btns">
+            <button class="btn" type="button" id="copyBtn">문의 글 복사하기</button>
+          </div>
+          <p class="toast" id="toast"></p>
+          <div class="phone">
+            <span>예약 문의 · 운영자 조영종</span>
+            <b>010-8621-6649</b>
+          </div>
+          <p class="small">복사한 글을 위 번호로 문자 보내 주세요. 휴대폰에서는 <a href="sms:01086216649">문자 보내기</a> 또는 <a href="tel:01086216649">전화 걸기</a>를 눌러도 됩니다.</p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section id="guide">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="label">이용 안내</span>
+        <div><h2>머무시기 전에 알아 두세요</h2></div>
+      </div>
+      <div class="info">
+        <div>
+          <h3>숙박과 결제</h3>
+          <ul>
+            <li>한 동 전체를 한 팀이 이용합니다.</li>
+            <li>기본 숙박에 환영 차, 소량의 다식, 셀프 다기 이용이 포함됩니다.</li>
+            <li>세금과 기본 청소비를 포함한 총 결제 금액을 미리 안내합니다. 추가 인원·체험·선택 서비스 비용은 따로 나누어 알려 드립니다.</li>
+            <li>입실·퇴실 시간과 취소·환불 조건은 예약하실 때 이용안내문으로 보내 드립니다.</li>
+            <li>객실은 퇴실 후 청소하고, 침구는 손님이 바뀔 때마다 세탁해 교체합니다.</li>
+            <li>손님 사진과 후기는 따로 동의를 받은 경우에만 사용합니다.</li>
+          </ul>
+        </div>
+        <div>
+          <h3>오시는 길</h3>
+          <p class="addr">전남광주통합특별시 담양군<br>금성면 문암길 15</p>
+          <div class="btns" style="margin-bottom:18px">
+            <a class="btn ghost" href="https://map.naver.com/p/search/%EB%8B%B4%EC%96%91%EA%B5%B0%20%EA%B8%88%EC%84%B1%EB%A9%B4%20%EB%AC%B8%EC%95%94%EA%B8%B8%2015" target="_blank" rel="noopener">네이버 지도에서 보기</a>
+            <a class="btn ghost" href="https://map.kakao.com/?q=%EB%8B%B4%EC%96%91%EA%B5%B0%20%EA%B8%88%EC%84%B1%EB%A9%B4%20%EB%AC%B8%EC%95%94%EA%B8%B8%2015" target="_blank" rel="noopener">카카오맵에서 보기</a>
+          </div>
+          <ul>
+            <li>예약 문의 <span class="num">010-8621-6649</span></li>
+            <li>화재·구급 <span class="num">119</span> · 경찰 <span class="num">112</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="reg">
+      <span class="seal">봉암재</span>
+      <div>
+        <div>봉암재 · 대표 조영종 · 전남광주통합특별시 담양군 금성면 문암길 15</div>
+        <div>관광사업 등록 제2026-000001호 (한옥체험업) · 담양군 등록</div>
+      </div>
+    </div>
+    <div>예약 문의 <span class="num">010-8621-6649</span></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var ROOMS={
+    seoam:{name:"서암정",base:2,max:4,weekday:450000,weekend:550000,peak:750000},
+    soso:{name:"소소당",base:4,max:8,weekday:600000,weekend:700000,peak:950000}
+  };
+  var EXTRA=20000,BBQ=30000;
+  var $=function(id){return document.getElementById(id)};
+  var won=function(n){return n.toLocaleString("ko-KR")+"원"};
+  var DAYS=["일","월","화","수","목","금","토"];
+
+  // 기본 입실일: 다음 토요일 전날(금요일)이 아닌, 2주 뒤 날짜로 예시를 채움
+  (function(){var d=new Date();d.setDate(d.getDate()+14);
+    $("f-in").value=d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");
+    $("f-in").min=new Date().toISOString().slice(0,10);})();
+
+  function parseDate(v){if(!v)return null;var p=v.split("-");return new Date(+p[0],+p[1]-1,+p[2]);}
+  function fmt(d){return (d.getMonth()+1)+"월 "+d.getDate()+"일("+DAYS[d.getDay()]+")";}
+
+  function calc(){
+    var room=ROOMS[$("f-room").value];
+    var nights=+$("f-nights").value;
+    var adults=Math.max(1,parseInt($("f-adults").value||"1",10));
+    var infants=Math.max(0,parseInt($("f-infants").value||"0",10));
+    var peak=$("f-peak").checked, bbq=$("f-bbq").checked;
+    var start=parseDate($("f-in").value);
+    var lines=[],total=0,err="";
+
+    $("f-adults").max=room.max;
+    if(adults>room.max){err=room.name+"은 최대 "+room.max+"인까지 머물 수 있어요. 인원을 줄이거나 소소당을 골라 주세요.";}
+    if(!start){err=err||"입실일을 골라 주세요.";}
+
+    var stayRows=[];
+    if(start){
+      for(var i=0;i<nights;i++){
+        var d=new Date(start);d.setDate(d.getDate()+i);
+        var dow=d.getDay();
+        var kind=peak?"성수기":(dow===5||dow===6)?"주말":"주중";
+        var price=peak?room.peak:(kind==="주말"?room.weekend:room.weekday);
+        stayRows.push(fmt(d)+" "+kind);
+        lines.push([fmt(d)+" · "+kind,price]);total+=price;
+      }
+    }
+    var over=Math.max(0,Math.min(adults,room.max)-room.base);
+    if(over>0){var e=over*EXTRA*nights;lines.push(["추가 인원 "+over+"명 × "+nights+"박",e]);total+=e;}
+    if(infants>0){lines.push(["영유아 "+infants+"명",0]);}
+    if(bbq){lines.push(["바비큐 그릴 대여",BBQ]);total+=BBQ;}
+
+    var expPeople=Math.max(1,parseInt($("f-exppeople").value||"1",10));
+    var exps=[];
+    document.querySelectorAll("[data-exp]").forEach(function(c){
+      if(c.checked){var p=+c.dataset.price*expPeople;exps.push(c.dataset.exp);lines.push([c.dataset.exp+" × "+expPeople+"명",p]);total+=p;}
+    });
+
+    $("r-room").textContent=room.name+" · "+nights+"박";
+    $("lines").innerHTML=lines.map(function(l){return "<div><span>"+l[0]+"</span><span>"+(l[1]===0?"무료":won(l[1]))+"</span></div>";}).join("");
+    $("total").textContent=won(total);
+    $("err").textContent=err;
+
+    var out=start?new Date(start):null; if(out)out.setDate(out.getDate()+nights);
+    var name=$("f-name").value.trim()||"(이름)";
+    var tel=$("f-tel").value.trim()||"(연락처)";
+    var msg="[봉암재 예약 문의]\n"+
+      "이름: "+name+" / 연락처: "+tel+"\n"+
+      "객실: "+room.name+"\n"+
+      "일정: "+(start?fmt(start)+" 입실 ~ "+fmt(out)+" 퇴실 ("+nights+"박)":"(입실일)")+"\n"+
+      "인원: "+adults+"명"+(infants?" + 영유아 "+infants+"명":"")+"\n"+
+      (bbq?"바비큐 그릴 대여 희망\n":"")+
+      (exps.length?"체험: "+exps.join(", ")+" ("+expPeople+"명)\n":"")+
+      ($("f-memo").value.trim()?"요청 사항: "+$("f-memo").value.trim()+"\n":"")+
+      "예상 금액: "+won(total)+"\n가능 여부 확인 부탁드립니다.";
+    $("msg").value=msg;
+  }
+
+  $("bookForm").addEventListener("input",calc);
+  $("bookForm").addEventListener("change",calc);
+  $("bookForm").addEventListener("submit",function(e){e.preventDefault();});
+  $("copyBtn").addEventListener("click",function(){
+    var t=$("msg").value, toast=$("toast");
+    function fallback(){$("msg").focus();$("msg").select();toast.textContent="문의 글을 선택해 두었어요. 길게 누르거나 Ctrl+C로 복사해 주세요.";}
+    try{
+      navigator.clipboard.writeText(t).then(function(){toast.textContent="복사했어요. 010-8621-6649로 문자 보내 주세요.";},fallback);
+    }catch(e){fallback();}
+  });
+  calc();
+})();
+</script>
+
+</body></html>
